@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
-    "test": "set NODE_OPTIONS=--experimental-vm-modules && jest",
+    "test": "NODE_OPTIONS=--experimental-vm-modules && jest",
+    "test:window": "set NODE_OPTIONS=--experimental-vm-modules && jest",
     "lint": "eslint src"
   },
   "dependencies": {
