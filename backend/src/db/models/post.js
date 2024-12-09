@@ -3,9 +3,9 @@ import mongoose, { Schema } from 'mongoose'
 const postSchema = new Schema(
   {
     title: { type: String, required: true },
-    author: String,
     contents: String,
     tags: [String],
+    author: { type: Schema.Types.ObjectId, ref: 'user', required: true },
   },
   {
     timestamps: true,
