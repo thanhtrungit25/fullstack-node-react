@@ -71,7 +71,9 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
+    timeout: 2 * 60 * 1000,
     command: 'npm run e2e',
     url: 'http://localhost:5173',
+    reuseExistingServer: !process.env.CI,
   },
 })
