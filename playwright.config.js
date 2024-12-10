@@ -74,5 +74,6 @@ export default defineConfig({
     timeout: 120000,
     command: 'npm run e2e',
     url: 'http://localhost:5173',
+    reuseExistingServer: !process.env.CI,
   },
 })
