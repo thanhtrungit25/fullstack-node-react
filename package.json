@@ -11,7 +11,7 @@
     "build:server": "vite build --outDir dist/server --ssr src/entry-server.jsx",
     "e2e": "concurrently \"npm run e2e:client\" \"npm run e2e:server\"",
     "e2e:client": "npm run build && npm run start",
-    "e2e:server": "cd backend/ && npm run e2e",
+    "e2e:server": "cd backend && npm run e2e",
     "lint": "eslint src",
     "preview": "vite preview",
     "prepare": "husky install"
