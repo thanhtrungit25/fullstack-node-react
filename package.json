@@ -4,11 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node server",
     "dev": "node server",
+    "start": "cross-env NODE_ENV=production node server",
     "build": "npm run build:client && npm run build:server",
     "build:client": "vite build --outDir dist/client",
     "build:server": "vite build --outDir dist/server --ssr src/entry-server.jsx",
+    "e2e": "concurrently \"npm run e2e:client\" \"npm run e2e:server\"",
+    "e2e:client": "npm run build && npm run start",
+    "e2e:server": "cd backend/ && npm run e2e",
     "lint": "eslint src",
     "preview": "vite preview",
     "prepare": "husky install"
@@ -29,9 +32,12 @@
   "devDependencies": {
     "@commitlint/cli": "^18.4.3",
     "@commitlint/config-conventional": "^18.4.3",
+    "@playwright/test": "^1.49.1",
+    "@types/node": "^22.10.1",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
     "@vitejs/plugin-react": "^4.2.0",
+    "concurrently": "^8.2.2",
     "eslint": "^8.54.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-jsx-a11y": "^6.8.0",
