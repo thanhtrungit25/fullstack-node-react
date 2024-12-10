@@ -49,7 +49,7 @@ export const routes = [
     },
   },
   {
-    path: '/posts/:postId',
+    path: '/posts/:postId/:slug?',
     loader: async ({ params }) => {
       const postId = params.postId
 
