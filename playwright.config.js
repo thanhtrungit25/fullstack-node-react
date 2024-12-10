@@ -7,6 +7,8 @@ import { defineConfig, devices } from '@playwright/test'
  */
 // require('dotenv').config();
 
+const port = process.env.CI ? 5173 : 3000
+
 /**
  * @see https://playwright.dev/docs/test-configuration
  */
@@ -71,9 +73,11 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    timeout: 120000,
     command: 'npm run e2e',
-    url: 'http://localhost:5173',
-    reuseExistingServer: true,
+    // url: 'http://localhost:5173',
+    port: port,
+    reuseExistingServer: !process.env.CI,
+    stdout: 'pipe',
+    stderr: 'pipe',
   },
 })
